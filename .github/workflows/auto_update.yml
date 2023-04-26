@@ -56,7 +56,9 @@ jobs:
           EMAIL_RECIPIENT: ${{ secrets.EMAIL_RECIPIENT }}
         run: |
           git clone https://github.com/shinokumura/exforparser.git
+          git clone https://github.com/IAEA-NDS/exfor_dictionary.git
           cd exforparser
+          ln -s ../exfor_dictionary
           output=$(python exparser.py)
           echo ::set-output name=NP::$output
 
@@ -65,7 +67,7 @@ jobs:
         run: |
           if [[ -n "${{ steps.runpy.outputs.NP }}" ]]
           then
-            bash ${GITHUB_WORKSPACE}/script/get_update_date.sh > entry_updatedate.dat
+            # bash ${GITHUB_WORKSPACE}/script/get_update_date.sh > entry_updatedate.dat
             git config user.name github-actions
             git config user.email github-actions@github.com
             git add entry_updatedate.dat
