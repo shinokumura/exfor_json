@@ -1,3 +1,11 @@
-exforparser @ https://github.com/shinokumura/exforparser.git
+# exforparser @ https://github.com/shinokumura/exforparser.git
 # exfor_master @ https://github.com/IAEA-NDS/exfor_master.git
 # exfor_dictionary @ https://github.com/IAEA-NDS/exfor_dictionary.git
+requests
+dnspython
+matplotlib
+numpy
+pandas
+plotly
+pymongo==4.1.1
+pymongo[srv]

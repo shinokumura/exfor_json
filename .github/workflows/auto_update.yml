@@ -31,7 +31,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          fetch-depth: 0
+          # fetch-depth: 0
 
 
       - uses: fregante/setup-git-user@v1
@@ -55,6 +55,7 @@ jobs:
           EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
           EMAIL_RECIPIENT: ${{ secrets.EMAIL_RECIPIENT }}
         run: |
+          git clone https://github.com/shinokumura/exforparser.git
           cd exforparser
           output=$(python exparser.py)
           echo ::set-output name=NP::$output
